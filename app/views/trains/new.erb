@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NEW TRAIN</title>
+    <div><a href="/">BACK TO HOME</a></div>
+    <div><a href="/trains">BACK TO INDEX</a></div>
+
+</head>
+<body>
+    <h1>NEW TRAIN FORM</h1>
+    <form action="/trains" method="POST">
+    <label for="train[name]">Name:</label>
+    <input type="text" name="train[name]">
+    <br>
+    <label for="train[series]">Series:</label>
+    <input type="text" name="train[series]">
+    <br>
+    <label for="train[cars]">Number of Cars:</label>
+    <input type="text" name="train[cars]">
+    <br>
+    <br>
+    <% @stations.each do |station| %>
+        <input type="checkbox" name="train[station_ids][]" value="<%= station.id %>">
+        <%= station.name %>
+        <br>
+    <% end %>
+    <br>
+    <br>
+    <input type="submit" value="CREATE">
+    </form>
+</body>
+</html>

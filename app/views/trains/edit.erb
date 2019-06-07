@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EDITING <%= @train.name %></title>
+    <div><a href="/">BACK TO HOME</a></div>
+    <div><a href="/trains">BACK TO INDEX</a></div>
+</head>
+<body>
+    <h1>EDITING <%= @train.name %></h1>
+    <form action="/trains/<%= @train.id %>" method="POST">
+    <input type="hidden" name="_method" value="patch">
+    <label for="train[name]">Name:</label>
+    <input type="text" name="train[name]" value="<%=@train.name%>">
+    <br>
+    <label for="train[series]">Series:</label>
+    <input type="text" name="train[series]" value="<%=@train.series%>">
+    <br>
+    <label for="train[cars]">Number of Cars:</label>
+    <input type="text" name="train[cars]" value="<%=@train.cars%>">
+    <br>
+    <br>
+    <% @stations.each do |station| %>
+        <input type="checkbox" name="train[station_ids][]" value="<%= station.id %>" <%='checked' if @train.stations.include?(station)%>>
+        <%= station.name %> </input>
+        <br>
+    <% end %>
+    <br>
+    <br>
+    <input type="submit" value="UPDATE">
+    </form>
+</body>
+</html>

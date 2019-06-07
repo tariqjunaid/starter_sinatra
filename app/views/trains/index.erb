@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TRAINS</title>
+  <div><a href="/">BACK TO HOME</a></div>
+  <br>
+  <div><a href="/trains/new">NEW TRAIN FORM</a></div>
+</head>
+<body>
+  <h1>List of Trains:</h1>
+  <% @trains.each do |train| %>
+  <h4><a href="/trains/<%=train.id%>"><%= train.name.upcase %></a></h4>
+  <% end %>
+</body>
+</html>

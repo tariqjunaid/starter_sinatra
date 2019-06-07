@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>List of Stations:</title>
+  <div><a href="/">BACK TO HOME</a></div>
+  <br>
+  <div><a href="/stations/new">NEW STATION FORM</a></div>
+</head>
+<body>
+  <h1>Station Names:</h1>
+  <% @stations.each do |station| %>
+    <h4><a href="/stations/<%= station.id%>"><%= station.name %></a></h4>
+    <% end %>
+</body>
+</html> 

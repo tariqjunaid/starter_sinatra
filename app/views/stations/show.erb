@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Station Info</title>
+  <div><a href="/">BACK TO HOME</a></div>
+  <div><a href="/stations">BACK TO INDEX</a></div>
+</head>
+<body>
+  
+  <h2>Name: </h2> <%= @station.name.upcase  %>
+  <br>
+  <br>
+  <h2>STATION STOPS:</h2>
+  <ul>
+  <% @station.trains.each do |train| %>
+  <li><%= train.name %> - <%= train.series %> - <%= train.cars %></li>
+  <% end %>
+</ul>
+<br>
+<br>
+<form action="/stations/<%=@station.id%>" method="POST">
+<input type="hidden" name="_method" value="delete">
+<input type="submit" name="SUBMIT" value="DELETE">
+<input type="button" onclick="window.location.href = '/stations/<%= @station.id %>/edit';" value="EDIT">
+</form>
+</body>
+</html>
